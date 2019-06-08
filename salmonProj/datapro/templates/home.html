@@ -1,0 +1,13 @@
+<h1>
+    자연어 버-억
+    <form action="{% url 'description' %}" method="GET">
+        <label>음식 설명 검색</label><br>
+        <input type = "text" name = "query1"><br>
+        <input type = "submit" value="검색"><br>
+    </form>
+    <form action="{% url 'ingredient' %}" method="GET">
+        <label>음식 재료 검색</label><br>
+        <input type = "text" name = "query2"><br>
+        <input type = "submit" value="검색"><br>
+    </form>
+</h1>
