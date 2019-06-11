@@ -34,8 +34,6 @@ def FindN(query):
 q=input() #쿼리 입력 ex) warm chicken with onion
 
 candidate=FindN(q)   # candidate = [chicken,onion]
-print(candidate)
-
 
 # In[3]:
 

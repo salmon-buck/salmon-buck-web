@@ -4,7 +4,7 @@ from openpyxl import load_workbook
 
 input_path = os.getcwd()                                                        # 현재 디렉토리 위치를 불러온다
 
-DB_path=os.path.join(input_path, '../Data_Preprocessing/recipeProcess/DB.xlsx')
+DB_path=os.path.join(input_path, 'static/DB.xlsx')
 
 load_wb=load_workbook(DB_path, data_only=True)
 
