@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
 from .readDB import *
 from .preProcessing import preProcessing
 from nltk.tag import pos_tag
@@ -31,13 +25,9 @@ def FindN(query):
 
 # FindN 을 사용하여 쿼리에서 명사를 추출하여 Boolean에 사용
 
-q=input() #쿼리 입력 ex) warm chicken with onion
+# q=input() #쿼리 입력 ex) warm chicken with onion
 
-candidate=FindN(q)   # candidate = [chicken,onion]
-
-# In[3]:
-
-
+# candidate=FindN(q)   # candidate = [chicken,onion]
 
 ### 이 경우는 무조건 쿼리에 적힌 재료들이 포함되어 있는 경우, 
 ###예를들어 양파 닭 소금이 쿼리에 있다면 저 3개를 모두 가지고 있는 결과물 중에서 검색
@@ -130,19 +120,14 @@ def boolean_Ingredient_weight(q_ing, db_ing) :
         ranked_with_weight.append(lg[len(lg)-i-1])
         
     return ranked_with_weight
-data_name = boolean_Ingredient_nameonly(candidate, db) # 소팅되지 않은 해당 음식들 전부
-data_all = boolean_Ingredient_all(candidate, db) # 소팅되지 않은 음식들의 값 전부 계산
-data = boolean_Ingredient(candidate, db) # 소팅된 음식들의 weight 빼고
-data_weight = boolean_Ingredient_weight(candidate, db) # data에는 chicken과 onion이 포함된 커리만 출력됨 - ranking을 통해 5위까지 출력
-print(data_name)
-print(data_all)
-print(data)
-print(data_weight)
-
-
-# In[13]:
-
-
+# data_name = boolean_Ingredient_nameonly(candidate, db) # 소팅되지 않은 해당 음식들 전부
+# data_all = boolean_Ingredient_all(candidate, db) # 소팅되지 않은 음식들의 값 전부 계산
+# data = boolean_Ingredient(candidate, db) # 소팅된 음식들의 weight 빼고
+# data_weight = boolean_Ingredient_weight(candidate, db) # data에는 chicken과 onion이 포함된 커리만 출력됨 - ranking을 통해 5위까지 출력
+# print(data_name)
+# print(data_all)
+# print(data)
+# print(data_weight)
 
 ### 이 경우는 쿼리에 적힌 재료들이 모두 포함되어 있지 않더라도 가까운 경우, 
 ###예를들어 양파 닭 소금이 쿼리에 있다면 저 2개만을 가지고 있더라도 가까운 음식 중에서 검색
@@ -225,12 +210,12 @@ def NA_Ingredient_weight(q_ing, db_ing) :
         ranked_with_weight.append(lg[len(lg)-i-1])
         
     return ranked_with_weight
-NAdata_name = NA_Ingredient_nameonly(candidate, db) # 소팅되지 않은 해당 음식들 전부
-NAdata_all = NA_Ingredient_all(candidate, db) # 소팅되지 않은 음식들의 값 전부 계산
-NAdata = NA_Ingredient(candidate, db) # 소팅된 음식들의 weight 빼고
-NAdata_weight = NA_Ingredient_weight(candidate, db) # data에는 chicken과 onion이 포함된 커리만 출력됨 - ranking을 통해 5위까지 출력
-print(NAdata_name)
-print(NAdata_all)
-print(NAdata)
-print(NAdata_weight)
+# NAdata_name = NA_Ingredient_nameonly(candidate, db) # 소팅되지 않은 해당 음식들 전부
+# NAdata_all = NA_Ingredient_all(candidate, db) # 소팅되지 않은 음식들의 값 전부 계산
+# NAdata = NA_Ingredient(candidate, db) # 소팅된 음식들의 weight 빼고
+# NAdata_weight = NA_Ingredient_weight(candidate, db) # data에는 chicken과 onion이 포함된 커리만 출력됨 - ranking을 통해 5위까지 출력
+# print(NAdata_name)
+# print(NAdata_all)
+# print(NAdata)
+# print(NAdata_weight)
 

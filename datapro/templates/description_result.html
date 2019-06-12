@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>결과창입니다.</h1>
+query : {{query}} <br>
+candidate : {{candidate}} <br>
+
+<br>
+<h2>NAdata</h2>
+{% for item in NAdata %}
+    {{item}}<br>
+{% endfor %}
+
+{% endblock %}
