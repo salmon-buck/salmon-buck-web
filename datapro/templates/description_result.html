@@ -1,15 +1,22 @@
-{% extends 'base.html' %}
+<!-- {% extends 'base.html' %}
 
-{% block content %}
+{% block content %} -->
 <h1>결과창입니다.</h1>
 query : {{query}} <br>
 
 <br>
 <h2>Match</h2>
 
-
-{% for item in avgResult %}
-    {{item}}<br>
+{% for item in db_list %}
+    {{ forloop.counter }}등<br>
+    <img src = "{{item.ImageUrl}}" width="300px"><br>
+    Name : {{item.name}}<br>
+    Description : {{item.description}}<br>
+    Country : {{item.country}}<br>
+    Ingredient : {{item.ingredient}}<br>
+    Recipe : {{item.recipe}}<br>
+    Time : {{item.time}}<br>
+    <br><br>
 {% endfor %}
 
 {% endblock %}
