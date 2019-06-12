@@ -1,9 +1,9 @@
-from Model.readDB import *
+from .readDB import *
 from nltk.corpus import wordnet
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 
-from Data_Preprocessing.recipeProcess.preProcessing import preProcessing
+from .preProcessing import preProcessing
 
 import random
 
@@ -52,10 +52,10 @@ def randomPick(candidate) :
 
     return query_list
 
-q=input('검색 입력 : ')
-q_processed=preProcessing(q)
-q=q.split()
-candidate=synonyms(q, q_processed)
-print(candidate)
-query_list=randomPick(candidate)
-print(query_list)
+# q=input('검색 입력 : ')
+# q_processed=preProcessing(q)
+# q=q.split()
+# candidate=synonyms(q, q_processed)
+# print(candidate)
+# query_list=randomPick(candidate)
+# print(query_list)
