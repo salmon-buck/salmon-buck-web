@@ -20,7 +20,7 @@ def description_search(request):
     for item in range(5):
         list.append(avgResult[item][0])
 
-    return render(request,'description_result.html',{'query':query,'avgResult':list})
+    return render(request,'description_result.html',{'query':query,'avgResult':list,'db':db})
 
 def ingredient_search(request):
     query = request.GET['query2']
