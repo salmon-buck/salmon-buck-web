@@ -15,10 +15,18 @@
                 <img src = "{{item.ImageUrl}}" width="300px"><br><br>
                 <!--description-->
                 <p class = "style1">{{item.description}}</p>
-                <h1>Country</h1><p class = "style1">{{item.country}}</p>
-                <h1>Ingredient</h1><p class = "style1">{{item.ingredient}}</p>
-                <h1>Recipe</h1><p class = "style1">{{item.recipe}}</p>
-                <h1>Time</h1><p class = "style1">{{item.time}}</p>
+
+                <h1>Country <i class="fas fa-globe-asia"></i></h1>
+                <p class = "style1">{{item.country}}</p>
+                
+                <h1>Ingredient <i class="fas fa-carrot"></i></h1>
+                <p class = "style1">{{item.ingredient}}</p>
+                
+                <h1>Recipe <i class="fas fa-utensils"></i></h1>
+                <p class = "style1">{{item.recipe}}</p>
+                
+                <h1>Time <i class="fab fa-algolia"></i></h1>
+                <p class = "style1">{{item.time}}</p>
                 <hr>
                 <br>
             {% endfor %}
