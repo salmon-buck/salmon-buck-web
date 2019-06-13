@@ -1,26 +1,42 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="title">Recipe Search</div>
-    <div class="container">
-        <h1>결과창입니다.</h1>
-        <p class="style1">query : {{query}}</p> <br>
-        <!-- <p class="style1">candidate : {{candidate}}</p> -->
-    
-        <br>
-        {% for item in db_list %}
-            <h1>{{ forloop.counter }}등</h1><br>
-            <p class="style2">{{item.name}}</p><br>
-            <img src = "{{item.ImageUrl}}" width="300px"><br><br>
-            <!--description-->
-            <p class = "style1">{{item.description}}</p>
-            <h1>Country</h1><p class = "style1">{{item.country}}</p>
-            <h1>Ingredient</h1><p class = "style1">{{item.ingredient}}</p>
-            <h1>Recipe</h1><p class = "style1">{{item.recipe}}</p>
-            <h1>Time</h1><p class = "style1">{{item.time}}</p>
-            <hr>
+<style>
+    h1{
+        font-size: 30px
+    }
+</style>
+
+    <section id="intro" class="wrapper style1">
+        <div class="title">Recipe Search</div>
+        <div class="container">
+            <h1>결과창입니다.</h1>
+            <p class="style1">query : {{query}}</p> <br>
+            <!-- <p class="style1">candidate : {{candidate}}</p> -->
+        
             <br>
-        {% endfor %}
-    </div>
+            {% for item in db_list %}
+                <h1>{{ forloop.counter }}등</h1><br>
+                <p class="style2">{{item.name}}</p><br>
+                <img src = "{{item.ImageUrl}}" width="300px"><br><br>
+                <!--description-->
+                <p class = "style1">{{item.description}}</p>
+
+                <h1>Country <i class="fas fa-globe-asia"></i></h1>
+                <p class = "style1">{{item.country}}</p>
+                
+                <h1>Ingredient <i class="fas fa-carrot"></i></h1>
+                <p class = "style1">{{item.ingredient}}</p>
+                
+                <h1>Recipe <i class="fas fa-utensils"></i></h1>
+                <p class = "style1">{{item.recipe}}</p>
+                
+                <h1>Time <i class="fab fa-algolia"></i></h1>
+                <p class = "style1">{{item.time}}</p>
+                <hr>
+                <br>
+            {% endfor %}
+        </div>
+    </section>
 
 {% endblock %}
