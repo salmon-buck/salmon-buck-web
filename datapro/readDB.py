@@ -6,7 +6,7 @@ input_path = os.getcwd()                                                        
 
 DB_path=os.path.join(input_path, 'static/DB.xlsx')
 
-load_wb=load_workbook(DB_path, data_only=True)
+load_wb=load_workbook('static/DB.xlsx', data_only=True)
 
 db={}
 load_ws=load_wb['DB']

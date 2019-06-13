@@ -7,7 +7,7 @@ from .readDB import *
 
 # Create your views here.
 def home(request):
-    return render(request,'home.html')
+    return render(request,'home.html',{'db':db})
 
 def description_search(request):
     query = request.GET['query1']
@@ -23,7 +23,19 @@ def description_search(request):
         list.append(avgResult[item][0])
         db_list.append(db[avgResult[item][0]])
     
-    return render(request,'description_result.html',{'query':query,'avgResult':list,'db_list':db_list})
+    original_data = []
+    for i in range(5):
+        f = open('static/recipe.txt','rt',encoding ='UTF8')
+        while True:
+            line = f.readline()
+            if not line: break
+            data = line.split(';')
+            print(data[1].strip(),db_list[i]['name'].strip())
+            if data[1].strip() in db_list[i]['name'].strip():
+                original_data.append(data)
+                print("yes")
+        f.close()
+    return render(request,'description_result.html',{'query':query,'avgResult':list,'db_list':db_list,'data':original_data})
 
 def ingredient_search(request):
     query = request.GET['query2']
