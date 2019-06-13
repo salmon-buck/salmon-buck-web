@@ -4,10 +4,31 @@
     <title>자연어 버-억</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset/css/main.css' %}" />
+    
+<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 </head>
-<script src="{% static 'assets/js/main.js' %}"></script>
 
-{% block content %}
+<body class="homepage is-preload">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <section id="header" class="wrapper">
 
-{% endblock %}
+            <!-- Logo -->
+                <div id="logo">
+                    <h1 style="font-size: 40px"><a href = "{% url 'home' %}">Salmon Buck</a></h1>
+                    <p>19년 1학기 자연어처리 및 정보검색 팀프로젝트</p>
+                </div>
+
+        </section>
+    </div>
+    {% block content %}
+
+    {% endblock %}
+</body>
