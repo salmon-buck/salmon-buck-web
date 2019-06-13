@@ -1,22 +1,28 @@
-<!-- {% extends 'base.html' %}
+{% extends 'base.html' %}
 
-{% block content %} -->
-<h1>결과창입니다.</h1>
-query : {{query}} <br>
-
-<br>
-<h2>Match</h2>
-
-{% for item in db_list %}
-    {{ forloop.counter }}등<br>
-    <img src = "{{item.ImageUrl}}" width="300px"><br>
-    Name : {{item.name}}<br>
-    Description : {{item.description}}<br>
-    Country : {{item.country}}<br>
-    Ingredient : {{item.ingredient}}<br>
-    Recipe : {{item.recipe}}<br>
-    Time : {{item.time}}<br>
-    <br><br>
-{% endfor %}
+{% block content %}
+    <section id="intro" class="wrapper style1">
+        <div class="title">Recipe Search</div>
+        <div class="container">
+            <h1>결과창입니다.</h1>
+            <p class="style1">query : {{query}}</p> <br>
+            <!-- <p class="style1">candidate : {{candidate}}</p> -->
+        
+            <br>
+            {% for item in db_list %}
+                <h1>{{ forloop.counter }}등</h1><br>
+                <p class="style2">{{item.name}}</p><br>
+                <img src = "{{item.ImageUrl}}" width="300px"><br><br>
+                <!--description-->
+                <p class = "style1">{{item.description}}</p>
+                <h1>Country</h1><p class = "style1">{{item.country}}</p>
+                <h1>Ingredient</h1><p class = "style1">{{item.ingredient}}</p>
+                <h1>Recipe</h1><p class = "style1">{{item.recipe}}</p>
+                <h1>Time</h1><p class = "style1">{{item.time}}</p>
+                <hr>
+                <br>
+            {% endfor %}
+        </div>
+    </section>
 
 {% endblock %}
