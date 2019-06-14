@@ -56,4 +56,25 @@ def ingredient_search(request):
 
     for item in range(5):
         db_list.append(db[NAdata[item]])
-    return render(request,'ingredient_result.html',{'db_list':db_list,'query':query,'candidate':candidate,'NAdata_name':NAdata_name,'NAdata_all':NAdata_all,'NAdata':NAdata,'NAdata_weight':NAdata_weight})
+
+    original_data = []
+    for i in range(5):
+        f = open('static/recipe.txt','rt',encoding ='UTF8')
+        while True:
+            line = f.readline()
+            if not line: break
+            data = line.split(';')
+            data[2] = data[2].split('\\')
+            data[4] = data[4].split('\\')
+            data[5] = data[5].split(':')
+            del data[5][0]
+            
+            for j in range(len(data[5])-1):
+                data[5][j] = data[5][j].strip()
+                data[5][j] = data[5][j][:-1]
+
+            if data[1].strip() in db_list[i]['name'].strip():
+                original_data.append(data)
+                print("yes")
+        f.close()
+    return render(request,'ingredient_result.html',{'data':original_data,'db_list':db_list,'query':query,'candidate':candidate,'NAdata_name':NAdata_name,'NAdata_all':NAdata_all,'NAdata':NAdata,'NAdata_weight':NAdata_weight})
