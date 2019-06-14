@@ -7,7 +7,7 @@ from .readDB import *
 
 # Create your views here.
 def home(request):
-    return render(request,'home.html')
+    return render(request,'home.html',{'db':db})
 
 def description_search(request):
     query = request.GET['query1']
@@ -23,7 +23,27 @@ def description_search(request):
         list.append(avgResult[item][0])
         db_list.append(db[avgResult[item][0]])
     
-    return render(request,'description_result.html',{'query':query,'avgResult':list,'db_list':db_list})
+    original_data = []
+    for i in range(5):
+        f = open('static/recipe.txt','rt',encoding ='UTF8')
+        while True:
+            line = f.readline()
+            if not line: break
+            data = line.split(';')
+            data[2] = data[2].split('\\')
+            data[4] = data[4].split('\\')
+            data[5] = data[5].split(':')
+            del data[5][0]
+            
+            for j in range(len(data[5])-1):
+                data[5][j] = data[5][j].strip()
+                data[5][j] = data[5][j][:-1]
+
+            if data[1].strip() in db_list[i]['name'].strip():
+                original_data.append(data)
+                print("yes")
+        f.close()
+    return render(request,'description_result.html',{'query':query,'avgResult':list,'db_list':db_list,'data':original_data})
 
 def ingredient_search(request):
     query = request.GET['query2']
@@ -36,4 +56,25 @@ def ingredient_search(request):
 
     for item in range(5):
         db_list.append(db[NAdata[item]])
-    return render(request,'ingredient_result.html',{'db_list':db_list,'query':query,'candidate':candidate,'NAdata_name':NAdata_name,'NAdata_all':NAdata_all,'NAdata':NAdata,'NAdata_weight':NAdata_weight})
+
+    original_data = []
+    for i in range(5):
+        f = open('static/recipe.txt','rt',encoding ='UTF8')
+        while True:
+            line = f.readline()
+            if not line: break
+            data = line.split(';')
+            data[2] = data[2].split('\\')
+            data[4] = data[4].split('\\')
+            data[5] = data[5].split(':')
+            del data[5][0]
+            
+            for j in range(len(data[5])-1):
+                data[5][j] = data[5][j].strip()
+                data[5][j] = data[5][j][:-1]
+
+            if data[1].strip() in db_list[i]['name'].strip():
+                original_data.append(data)
+                print("yes")
+        f.close()
+    return render(request,'ingredient_result.html',{'data':original_data,'db_list':db_list,'query':query,'candidate':candidate,'NAdata_name':NAdata_name,'NAdata_all':NAdata_all,'NAdata':NAdata,'NAdata_weight':NAdata_weight})

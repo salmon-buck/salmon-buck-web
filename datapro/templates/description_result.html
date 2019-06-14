@@ -13,30 +13,36 @@
             <h1>결과창입니다.</h1>
             <p class="style1">query : {{query}}</p> <br>
             <!-- <p class="style1">candidate : {{candidate}}</p> -->
-        
-            <br>
-            {% for item in db_list %}
-                <h1>{{ forloop.counter }}등</h1><br>
-                <p class="style2">{{item.name}}</p><br>
-                <img src = "{{item.ImageUrl}}" width="300px"><br><br>
-                <!--description-->
-                <p class = "style1">{{item.description}}</p>
 
+            <br>
+            {% for item in data %}
+                <h1>{{ forloop.counter }}등</h1><br>
+                <p class="style2">{{item.1}}</p><br>
+                <img src = "{{item.ImageUrl}}" width="300px"><br><br>
+                
+                <!--description-->
+                {% for item2 in item.2 %}
+                <p class = "style1">{{item2}}</p>
+                {% endfor %}
+                
                 <h1>Country <i class="fas fa-globe-asia"></i></h1>
-                <p class = "style1">{{item.country}}</p>
+                <p class = "style1">{{item.3}}</p>
                 
                 <h1>Ingredient <i class="fas fa-carrot"></i></h1>
-                <p class = "style1">{{item.ingredient}}</p>
+                {% for item4 in item.4 %}
+                <p class = "style1">{{item4}}</p>
+                {% endfor %}
                 
                 <h1>Recipe <i class="fas fa-utensils"></i></h1>
-                <p class = "style1">{{item.recipe}}</p>
-                
+                {% for item5 in item.5 %}
+                    <p class = "style1">{{forloop.counter}} . {{item5}}</p>
+                {% endfor %}
+
                 <h1>Time <i class="fab fa-algolia"></i></h1>
-                <p class = "style1">{{item.time}}</p>
+                <p class = "style1">{{item.6}}</p>
                 <hr>
                 <br>
             {% endfor %}
         </div>
     </section>
-
 {% endblock %}
