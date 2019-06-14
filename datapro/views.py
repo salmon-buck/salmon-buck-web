@@ -39,6 +39,7 @@ def description_search(request):
                 data[5][j] = data[5][j].strip()
                 data[5][j] = data[5][j][:-1]
 
+            # data[7] = data[7].strip()
             if data[1].strip() in db_list[i]['name'].strip():
                 original_data.append(data)
                 print("yes")
