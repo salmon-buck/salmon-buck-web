@@ -30,7 +30,15 @@ def description_search(request):
             line = f.readline()
             if not line: break
             data = line.split(';')
-            print(data[1].strip(),db_list[i]['name'].strip())
+            data[2] = data[2].split('\\')
+            data[4] = data[4].split('\\')
+            data[5] = data[5].split(':')
+            del data[5][0]
+            
+            for j in range(len(data[5])-1):
+                data[5][j] = data[5][j].strip()
+                data[5][j] = data[5][j][:-1]
+
             if data[1].strip() in db_list[i]['name'].strip():
                 original_data.append(data)
                 print("yes")
