@@ -3,7 +3,7 @@ Django==2.2.2
 et-xmlfile==1.0.1
 gunicorn==19.9.0
 jdcal==1.4.1
-nltk==3.4.3
+nltk==3.4.5
 openpyxl==2.6.2
 psycopg2-binary==2.8.2
 pytz==2019.1
